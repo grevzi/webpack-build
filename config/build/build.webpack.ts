@@ -1,5 +1,4 @@
 import webpack from "webpack";
-import path from "path";
 import type {Configuration as DevServerConfiguration} from "webpack-dev-server";
 import {buildDevServer} from "./build.dev-server";
 import {buildLoaders} from "./build.loaders";
@@ -16,7 +15,7 @@ export function buildWebpack(options: BuildOptions): webpack.Configuration & Dev
     entry: paths.entry,
     output: {
       path: paths.output,
-      filename: "bundle.[contenthash].js",
+      filename: "[name].[contenthash].js",
       clean: true
     },
     plugins: buildPlugins(options),
